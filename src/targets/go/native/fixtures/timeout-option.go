@@ -2,14 +2,13 @@ package main
 
 import (
 	"fmt"
-	"time"
-	"strings"
-	"net/http"
 	"io"
+	"net/http"
+	"strings"
+	"time"
 )
 
 func main() {
-
 	client := http.Client{
 		Timeout: time.Duration(30 * time.Second),
 	}
@@ -31,5 +30,4 @@ func main() {
 
 	fmt.Println(res)
 	fmt.Println(string(body))
-
 }

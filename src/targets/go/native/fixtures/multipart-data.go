@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"strings"
-	"net/http"
 	"io"
+	"net/http"
+	"strings"
 )
 
 func main() {
-
 	url := "http://mockbin.com/har"
 
 	payload := strings.NewReader("-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"foo\"; filename=\"hello.txt\"\r\nContent-Type: text/plain\r\n\r\nHello World\r\n-----011000010111000001101001\r\nContent-Disposition: form-data; name=\"bar\"\r\n\r\nBonjour le monde\r\n-----011000010111000001101001--\r\n")
@@ -24,5 +23,4 @@ func main() {
 
 	fmt.Println(res)
 	fmt.Println(string(body))
-
 }

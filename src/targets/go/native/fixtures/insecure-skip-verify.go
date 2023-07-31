@@ -1,15 +1,14 @@
 package main
 
 import (
-	"fmt"
 	"crypto/tls"
-	"strings"
-	"net/http"
+	"fmt"
 	"io"
+	"net/http"
+	"strings"
 )
 
 func main() {
-
 	insecureTransport := http.DefaultTransport.(*http.Transport).Clone()
 	insecureTransport.TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
 	client := http.Client{
@@ -33,5 +32,4 @@ func main() {
 
 	fmt.Println(res)
 	fmt.Println(string(body))
-
 }

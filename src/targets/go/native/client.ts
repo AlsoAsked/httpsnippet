@@ -55,30 +55,30 @@ export const native: Client<GoNativeOptions> = {
       push('package main');
       blank();
       push('import (');
-      push('"fmt"', indent);
-
-      if (timeout > 0) {
-        push('"time"', indent);
-      }
 
       if (insecureSkipVerify) {
         push('"crypto/tls"', indent);
       }
 
-      if (postData.text) {
-        push('"strings"', indent);
-      }
-
-      push('"net/http"', indent);
+      push('"fmt"', indent);
 
       if (printBody) {
         push('"io"', indent);
       }
 
+      push('"net/http"', indent);
+
+      if (postData.text) {
+        push('"strings"', indent);
+      }
+
+      if (timeout > 0) {
+        push('"time"', indent);
+      }
+
       push(')');
       blank();
       push('func main() {');
-      blank();
     }
 
     // Create an insecure transport for the client
@@ -154,7 +154,6 @@ export const native: Client<GoNativeOptions> = {
 
     // End main block
     if (showBoilerplate) {
-      blank();
       push('}');
     }
 

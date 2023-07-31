@@ -2,12 +2,11 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 	"io"
+	"net/http"
 )
 
 func main() {
-
 	url := "http://mockbin.com/har?foo%5Bbar%5D=baz%2Czap&fiz=buz&key=value"
 
 	req, _ := http.NewRequest("GET", url, nil)
@@ -19,5 +18,4 @@ func main() {
 
 	fmt.Println(res)
 	fmt.Println(string(body))
-
 }
